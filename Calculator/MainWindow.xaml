@@ -43,10 +43,8 @@
         <Button x:Name="btnEqual" Grid.Row="5" Grid.Column='4' Click="btnEqual_Click">=</Button>
         
         <!--Other-->
-        <Button x:Name="btnClearEntry" Grid.Row="1" Grid.Column='0' Click="btnClearEntry_Click">CE</Button>
-        <Button x:Name="btnBackspace" Grid.Row="1" Grid.Column='2' Content="&lt;=" Click="btnBackspace_Click"></Button>
-        <Button x:Name="btnClear" Grid.Row="1" Grid.Column='1' Click="btnClear_Click">C</Button>
-        <Button x:Name="btnNeg" Grid.Row="6" Grid.Column='0' Click="btnNeg_Click">-</Button>
+        <Button x:Name="btnClear" Grid.Row="1" Grid.Column='0' Click="btnClear_Click">C</Button>
+        
 
 
 
