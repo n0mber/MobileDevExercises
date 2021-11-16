@@ -82,9 +82,11 @@ namespace Notepad_teht._31
         {
             WindowFont mywindow = new WindowFont();
             mywindow.listFonts.SelectedItem = textBox1.FontFamily;
+            mywindow.TextBoxSize.Text = textBox1.FontSize.ToString();
             if (mywindow.ShowDialog() == true)
             {
                 textBox1.FontFamily = (FontFamily)mywindow.listFonts.SelectedItem;
+                textBox1.FontSize = int.Parse(mywindow.TextBoxSize.Text);
             }
         }
 

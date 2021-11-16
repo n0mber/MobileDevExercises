@@ -18,8 +18,10 @@
         <TextBox x:Name="ListOfFonts" HorizontalAlignment="Left" Margin="32,35,0,0" Text="List of Fonts:" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Width="273" Height="19" BorderBrush="{x:Null}"/>
         <TextBox x:Name="SelectedFont" HorizontalAlignment="Left" Margin="491,59,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="269" Height="56" Padding="3" Text="Example Text" FontSize="30" 
          FontFamily="{Binding ElementName=listFonts, Path=SelectedItem}"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="527,144,0,0" VerticalAlignment="Top" Height="27" Width="88" Click="Button_Click"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="635,144,0,0" VerticalAlignment="Top" Height="27" Width="88" RenderTransformOrigin="0.507,-0.311" IsCancel="True"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="527,184,0,0" VerticalAlignment="Top" Height="27" Width="88" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="635,184,0,0" VerticalAlignment="Top" Height="27" Width="88" RenderTransformOrigin="0.507,-0.311" IsCancel="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="497,146,0,0" Text="Font size:" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxSize" HorizontalAlignment="Left" Margin="560,144,0,0" Text="0&#xD;&#xA;" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Height="21" FontSize="14"/>
 
 
 
