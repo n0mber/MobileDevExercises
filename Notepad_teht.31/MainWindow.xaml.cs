@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Notepad_teht._31
 {
@@ -40,14 +41,29 @@ namespace Notepad_teht._31
             //Show open file dialog box
             bool? result = dialog.ShowDialog();
 
+            string filename = "";
             //Process open file dialog box results
             if (result == true)
             {
                 //Open document
-                string filename = dialog.FileName;
+                filename = dialog.FileName;
+                
             }
-
+            
             //avaa annettu tiedosto ja kopioi sen sisältö TextBoxiin
+
+            StreamReader reader = File.OpenText(filename);
+            string line = reader.ReadLine();
+            string textBoxText = "";
+            while (line != null)
+            {
+                textBoxText += line + "\n";
+                line = reader.ReadLine();
+            }
+            textBox1.Text = textBoxText;
+            reader.Close();
+
+            
         }
 
         //Print
@@ -56,12 +72,12 @@ namespace Notepad_teht._31
             var printDialog = new PrintDialog();
             if(printDialog.ShowDialog() == true)
             {
-                //korjaa a.o grid viittaamaan tekstiboxiin
-                //printDialog.PrintVisual(grid, "My First");
+                
+                printDialog.PrintVisual(textBox1, "FilePrint");
             }
         }
 
-        //F
+        //Font
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             WindowFont mywindow = new WindowFont();
@@ -71,5 +87,32 @@ namespace Notepad_teht._31
                 textBox1.FontFamily = (FontFamily)mywindow.listFonts.SelectedItem;
             }
         }
+
+        //Save
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.FileName = "Document"; // Default file name
+            dialog.DefaultExt = ".txt"; // Default file extension
+            dialog.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+
+            // Show save file dialog box
+            bool? result = dialog.ShowDialog();
+
+            string filename = "";
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                filename = dialog.FileName;
+            }
+
+            StreamWriter writer = File.CreateText(filename);
+            writer.WriteLine(textBox1.Text);
+            writer.Close();
+
+        }
+
+        
     }
 }
