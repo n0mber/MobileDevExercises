@@ -24,6 +24,10 @@ namespace Olympiarenkaat
         private double x;
         private double y = 100;
         int z = 0;
+        Ellipse ellipse = new Ellipse();
+        //onnistuisiko käsittely ellipse arrayn avulla
+        Ellipse[] ellipseArray = new Ellipse[5];
+
 
         public MainWindow()
         {
@@ -124,20 +128,22 @@ namespace Olympiarenkaat
 
         }
 
-        private void myCanvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        public void myCanvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
                       
-            Ellipse ellipse = new Ellipse();
+            
             ellipse.Width = ellipse.Height = 100;
             ellipse.StrokeThickness = 6;
             if (e.ClickCount == 1)
             {
                 ellipse.Stroke = Brushes.Blue;
+                
             }
 
             if (e.ClickCount == 2)
             {
                 ellipse.Stroke = Brushes.Yellow;
+                
             }
 
             if (e.ClickCount == 3)
@@ -156,6 +162,7 @@ namespace Olympiarenkaat
             }
 
             myCanvas.Children.Add(ellipse);
+            
             Canvas.SetLeft(ellipse, e.GetPosition(myCanvas).X - ellipse.Width / 2);
             Canvas.SetTop(ellipse, e.GetPosition(myCanvas).Y - ellipse.Height / 2);
 
@@ -165,8 +172,8 @@ namespace Olympiarenkaat
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-            
+            //onnistuisiko käsittely ellipse arrayn avulla
+            myCanvas.Children.Remove(ellipseArray[0]);
 
         }
     }
