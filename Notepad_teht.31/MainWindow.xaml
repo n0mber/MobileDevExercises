@@ -4,25 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notepad_teht._31"
+        xmlns:p="clr-namespace:Notepad_teht._31.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{x:Static p:Resource1.Title}" Height="450" Width="800" Closed="Window_Closed" Loaded="Window_Loaded">
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_Open..." Click="MenuItem_Click"/>
-                <MenuItem Header="_Save as..." Click="MenuItem_Click_3"/>
-                <MenuItem Header="_Print..." Click="MenuItem_Click_1"/>
-                <MenuItem Header="E_xit"/>
+            <MenuItem x:Name="FileMenu" Header="{x:Static p:Resource1.File}">
+                <MenuItem x:Name="OpenMenu" Header="{x:Static p:Resource1.FileOpen}" Click="MenuItem_Click"/>
+                <MenuItem x:Name="SaveMenu" Header="{x:Static p:Resource1.FileSaveAs}" Click="MenuItem_Click_3"/>
+                <MenuItem x:Name="PrintMenu" Header="{x:Static p:Resource1.FilePrint}" Click="MenuItem_Click_1"/>
+                <MenuItem x:Name="ExitMenu" Header="{x:Static p:Resource1.FileExit}"/>
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_Copy" Command="ApplicationCommands.Copy"/>
-                <MenuItem Header="Paste" Command="ApplicationCommands.Paste"/>
-                <MenuItem Header="F_ont" Click="MenuItem_Click_2"/>
+            <MenuItem x:Name="EditMenu" Header="{x:Static p:Resource1.FileEdit}">
+                <MenuItem x:Name="CopyMenu" Header="{x:Static p:Resource1.EditCopy}" Command="ApplicationCommands.Copy"/>
+                <MenuItem x:Name="PasteMenu" Header="{x:Static p:Resource1.EditPaste}" Command="ApplicationCommands.Paste"/>
+                <MenuItem x:Name="FontMenu" Header="{x:Static p:Resource1.EditFont}" Click="MenuItem_Click_2"/>
             </MenuItem>
         </Menu>
         <Grid AutomationProperties.IsColumnHeader="True">
-            <TextBox x:Name="textBox1" AcceptsReturn="True"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="783*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="textBox1" AcceptsReturn="True" Grid.ColumnSpan="2"/>
+
         </Grid>
     </DockPanel>
 </Window>

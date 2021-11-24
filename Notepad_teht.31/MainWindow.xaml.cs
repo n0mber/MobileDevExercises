@@ -23,7 +23,21 @@ namespace Notepad_teht._31
     {
         public MainWindow()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sv-SE");
+
             InitializeComponent();
+
+            Title = Properties.Resource1.Title;
+            FileMenu.Header = Properties.Resource1.File;
+            OpenMenu.Header = Properties.Resource1.FileOpen;
+            SaveMenu.Header = Properties.Resource1.FileSaveAs;
+            PrintMenu.Header = Properties.Resource1.FilePrint;
+            ExitMenu.Header = Properties.Resource1.FileExit;
+            EditMenu.Header = Properties.Resource1.FileEdit;
+            CopyMenu.Header = Properties.Resource1.EditCopy;
+            PasteMenu.Header = Properties.Resource1.EditPaste;
+            FontMenu.Header = Properties.Resource1.EditFont;
+            
         }
 
         /// <summary>
@@ -115,6 +129,17 @@ namespace Notepad_teht._31
 
         }
 
-        
+        //Kun ikkuna suljetaan
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Properties.Settings1.Default.Teksti = textBox1.Text;
+            Properties.Settings1.Default.Save();
+        }
+
+        //Kun ikkuna avataan
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBox1.Text = Properties.Settings1.Default.Teksti;
+        }
     }
 }
