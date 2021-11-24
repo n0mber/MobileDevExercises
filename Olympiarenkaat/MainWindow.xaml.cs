@@ -24,9 +24,10 @@ namespace Olympiarenkaat
         private double x;
         private double y = 100;
         int z = 0;
-        Ellipse ellipse = new Ellipse();
-        //onnistuisiko käsittely ellipse arrayn avulla
-        Ellipse[] ellipseArray = new Ellipse[5];
+
+        public Ellipse ellipse = new Ellipse();
+        public int[] ellipseArray;
+     
 
 
         public MainWindow()
@@ -36,13 +37,7 @@ namespace Olympiarenkaat
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            //myCanvas (TAPA1)
-            /*Canvas.SetLeft(ellipse1, x);
-            if (x < myCanvas.ActualWidth - ellipse1.Width)
-            {
-                x += 50;
-            }*/
-
+            
             /*DoubleAnimation a = new DoubleAnimation();
             a.From = 50;
             a.To = 100;
@@ -62,8 +57,6 @@ namespace Olympiarenkaat
 
             }
 
-            // myCanvas2 (TAPA 2)
-           // myCanvas2.SetX(x);
 
         }
 
@@ -75,6 +68,7 @@ namespace Olympiarenkaat
             if (i == 0)
             {
                 ellipse2.Stroke = Brushes.Blue;
+
             }
 
             if (i == 1)
@@ -115,17 +109,16 @@ namespace Olympiarenkaat
 
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            
             //Canvas.SetLeft(ellipse1, e.GetPosition(myCanvas).X - ellipse1.Width/2);
             //Canvas.SetTop(ellipse1, e.GetPosition(myCanvas).Y - ellipse1.Height / 2);
-            if (x < myCanvas.ActualWidth - 50)
-            {
-                //myCanvas2.SetX(e.GetPosition(myCanvas).X - 50);
-                myCanvas2.SetY(e.GetPosition(myCanvas).Y - 50);
-            }
+            //if (x < myCanvas.ActualWidth - 50)
+            //{
+            //    //myCanvas2.SetX(e.GetPosition(myCanvas).X - 50);
+            //    myCanvas2.SetY(e.GetPosition(myCanvas).Y - 50);
+            //}
             
-           
-
-
+         
         }
 
         public void myCanvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -165,15 +158,22 @@ namespace Olympiarenkaat
             
             Canvas.SetLeft(ellipse, e.GetPosition(myCanvas).X - ellipse.Width / 2);
             Canvas.SetTop(ellipse, e.GetPosition(myCanvas).Y - ellipse.Height / 2);
-
-           
+       
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //onnistuisiko käsittely ellipse arrayn avulla
-            myCanvas.Children.Remove(ellipseArray[0]);
+            
+            Random rnd = new Random();
+
+            myCanvas2.SetY(rnd.Next(50, 360));
+            if (x < myCanvas2.ActualWidth)
+            {
+                
+                myCanvas2.SetX(rnd.Next(30, 100));
+                
+            }
 
         }
     }
