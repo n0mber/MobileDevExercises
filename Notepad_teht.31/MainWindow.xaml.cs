@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Threading;
+using System.Globalization;
 
 namespace Notepad_teht._31
 {
@@ -24,6 +26,7 @@ namespace Notepad_teht._31
         public MainWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sv-SE");
+            //CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
 
             InitializeComponent();
 
@@ -40,11 +43,14 @@ namespace Notepad_teht._31
             
         }
 
+
+
         /// <summary>
         /// File/Open
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();

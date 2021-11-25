@@ -21,15 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resource1.en.resx">
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resource1.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resource.sv-SE.resx">
+    <EmbeddedResource Update="Properties\Resource1.sv-SE.resx">
       <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>

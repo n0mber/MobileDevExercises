@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EditCopy" xml:space="preserve">
-    <value>Kopiera_C</value>
+    <value>Kopiera</value>
   </data>
   <data name="EditFont" xml:space="preserve">
     <value>Fon_t</value>
   </data>
   <data name="EditPaste" xml:space="preserve">
-    <value>Klistar_V</value>
+    <value>Klistar</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>_Fil</value>
@@ -136,7 +136,7 @@
     <value>_Utgång</value>
   </data>
   <data name="FileOpen" xml:space="preserve">
-    <value>Öppen_O</value>
+    <value>Öppen</value>
   </data>
   <data name="FilePrint" xml:space="preserve">
     <value>_Print</value>
